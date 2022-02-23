@@ -1,4 +1,3 @@
-
 from attrs import define
 
 
@@ -45,6 +44,7 @@ class FiasObject(AbstractFiasObject):
             ("level", "LEVEL"),
         ]
 
+
 @define
 class House(AbstractFiasObject):
     house_num: str
@@ -63,6 +63,55 @@ class House(AbstractFiasObject):
             ("house_type", "HOUSETYPE"),
             ("add_type_1", "ADDTYPE1"),
             ("add_type_2", "ADDTYPE2"),
+        ]
+
+
+@define
+class Room(AbstractFiasObject):
+    room_number: str
+    room_type: str
+
+    @classmethod
+    def get_attribute_map(cls):
+        return super().get_attribute_map() + [
+            ("room_number", "ROOMNUMBER"),
+            ("room_type", "ROOMTYPE"),
+        ]
+
+
+@define
+class Apartment(AbstractFiasObject):
+    number: str
+    apartment_type: int
+
+
+    @classmethod
+    def get_attribute_map(cls):
+        return super().get_attribute_map() + [
+            ("number", "NUMBER"),
+            ("apartment_type", "APARTTYPE")
+        ]
+
+
+@define
+class CarPlace(AbstractFiasObject):
+    number: str
+
+    @classmethod
+    def get_attribute_map(cls):
+        return super().get_attribute_map() + [
+            ("number", "NUMBER")
+        ]
+
+
+@define
+class Stead(AbstractFiasObject):
+    number: str
+
+    @classmethod
+    def get_attribute_map(cls):
+        return super().get_attribute_map() + [
+            ("number", "NUMBER")
         ]
 
 
@@ -90,19 +139,22 @@ class BaseTypes:
             ("is_active", "ISACTIVE"),
         ]
 
+
 class AddrObject_Types(BaseTypes):
     pass
+
 
 class Room_Types(BaseTypes):
     pass
 
+
 class House_Types(BaseTypes):
     pass
+
 
 class AditionalHouseInfo_Types(BaseTypes):
     pass
 
+
 class Appartment_Types(BaseTypes):
     pass
-
-
