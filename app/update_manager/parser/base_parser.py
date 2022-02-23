@@ -30,6 +30,11 @@ class HouseParser(BaseParser[House]):
         super().__init__(House)
 
 
+class RoomTypesParser(BaseParser[Room_Types]):
+    def __init__(self):
+        super().__init__(Room_Types)
+
+
 class SteadParser(BaseParser[Stead]):
     def __init__(self):
         super().__init__(Stead)

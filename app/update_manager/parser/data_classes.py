@@ -128,7 +128,7 @@ class BaseTypes:
 
     @classmethod
     def get_attribute_map(cls):
-        return super().get_attribute_map() + [
+        return [
             ("id", "ID"),
             ("name", "NAME"),
             ("desc", "DESC"),
@@ -138,23 +138,27 @@ class BaseTypes:
             ("end_date", "ENDDATE"),
             ("is_active", "ISACTIVE"),
         ]
-
+@define
 
 class AddrObject_Types(BaseTypes):
     pass
 
 
+@define
 class Room_Types(BaseTypes):
     pass
 
 
+@define
 class House_Types(BaseTypes):
     pass
 
 
+@define
 class AditionalHouseInfo_Types(BaseTypes):
     pass
 
 
+@define
 class Appartment_Types(BaseTypes):
     pass
