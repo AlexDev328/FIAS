@@ -2,11 +2,12 @@ import databases
 import ormar
 import sqlalchemy
 
+from app.core.config import sqlalchemy_url
 
 metadata = sqlalchemy.MetaData()
-database = databases.Database("postgresql://fias:3285@127.0.0.1:5432/fias")
+database = databases.Database(sqlalchemy_url)
 
-engine = sqlalchemy.create_engine("postgresql://fias:3285@127.0.0.1:5432/fias")
+engine = sqlalchemy.create_engine(sqlalchemy_url)
 
 
 class MainMeta(ormar.ModelMeta):

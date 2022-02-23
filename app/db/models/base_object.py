@@ -10,7 +10,7 @@ class FiasObjectAbstract(ormar.Model):
     id: int = ormar.Integer(primary_key=True)
     fias_id: int = ormar.Integer()
     fias_object_id: int = ormar.BigInteger(index=True)
-    fias_object_guid: str = ormar.UUID()
+    fias_object_guid: str = ormar.String(max_length=50) # for sqllite working in future change to ormar.UUID()
     update_date: date = ormar.Date()
     start_date: date = ormar.Date()
     end_date: date = ormar.Date()
@@ -37,11 +37,11 @@ class HouseObject(FiasObjectAbstract):
     add_type_2: int = ormar.Integer()
 
 
-class Types:
+class Types(ormar.Model):
     class Meta(MainMeta):
         abstract = True
 
-    id: int = ormar.Integer()
+    id: int = ormar.Integer(primary_key=True)
     name: str = ormar.String(max_length=250)
     desc: str = ormar.String(max_length=250)
     short_name: str = ormar.String(max_length=250)
@@ -70,6 +70,3 @@ class AppartemntsTypes(Types):
     class Meta(MainMeta):
         pass
 
-class RoomTypes(Types):
-    class Meta(MainMeta):
-        pass

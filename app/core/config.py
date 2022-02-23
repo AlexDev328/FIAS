@@ -1,0 +1,1 @@
+sqlalchemy_url = "sqlite:///foo.db"

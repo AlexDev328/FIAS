@@ -7,6 +7,8 @@ from alembic import context
 
 # this is the Alembic Config object, which provides
 # access to the values within the .ini file in use.
+from app.core.config import sqlalchemy_url
+
 config = context.config
 
 # Interpret the config file for Python logging.
@@ -20,7 +22,7 @@ fileConfig(config.config_file_name)
 from app.db.base import MainMeta
 target_metadata = MainMeta.metadata
 
-config.set_main_option('sqlalchemy.url', "postgresql://fias:3285@127.0.0.1:5432/fias")
+config.set_main_option('sqlalchemy.url', sqlalchemy_url)
 # other values from the config, defined by the needs of env.py,
 # can be acquired:
 # my_important_option = config.get_main_option("my_important_option")
